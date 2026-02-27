@@ -255,6 +255,15 @@ public class FrameMedicamento extends javax.swing.JFrame {
     labelstock.setText(medicamento.stock+"");
     limpiar();
     JOptionPane.showMessageDialog(null, "Registro Ingresado");
+    
+    String texto = "MEDICAMENTO\n" +
+               "Codigo: " + codigo + "\n" +
+               "Nombre: " + nombremedicamento + "\n" +
+               "Uso: " + usomedicamento + "\n" +
+               "Stock: " + stock;
+
+ArchivoTexto.guardarTexto(texto, "medicamentos.txt");
+
 }
     public void limpiar(){
     txtcodigo.setText("");

@@ -264,6 +264,14 @@ public class FrameDoctor extends javax.swing.JFrame {
     labelespecialidad.setText(doctor.especialidad);
     limpiar();
     JOptionPane.showMessageDialog(null, "Registro Ingresado");
+    
+    String texto = "DOCTOR\n" +
+               "Codigo: " + codigo + "\n" +
+               "Nombre: " + nombredoctor + "\n" +
+               "Telefono: " + telefonodoctor + "\n" +
+               "especialidad: " + especialidad;
+
+ArchivoTexto.guardarTexto(texto, "medicamentos.txt");
 }
     public void limpiar(){
     txtcodigo.setText("");

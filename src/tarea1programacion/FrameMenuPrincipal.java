@@ -4,6 +4,10 @@
  */
 package tarea1programacion;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
 /**
  *
  * @author Jonatan
@@ -30,6 +34,7 @@ public class FrameMenuPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -40,21 +45,31 @@ public class FrameMenuPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Menu Principal");
 
+        jToggleButton1.setText("Ver datos ingresados");
+        jToggleButton1.addActionListener(this::jToggleButton1ActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(jLabel1)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jToggleButton1)))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(80, 80, 80)
                 .addComponent(jLabel1)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(jToggleButton1)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -100,6 +115,23 @@ public class FrameMenuPrincipal extends javax.swing.JFrame {
         new FrameMedicamento().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+        File archivo = new File("medicamentos.txt");
+
+        if (archivo.exists()) {
+            Desktop.getDesktop().open(archivo);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(null, "El archivo no existe aún");
+        }
+
+    } catch (IOException e) {
+        javax.swing.JOptionPane.showMessageDialog(null, "Error al abrir el archivo");
+    }
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -133,5 +165,6 @@ public class FrameMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

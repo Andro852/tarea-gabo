@@ -1,0 +1,12 @@
+MEDICAMENTO
+Codigo: 1
+Nombre: q
+Uso: q
+Stock: 1
+------------------------------------------
+MEDICAMENTO
+Codigo: 1
+Nombre: q
+Telefono: q
+especialidad: q
+------------------------------------------
